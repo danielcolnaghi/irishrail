@@ -14,11 +14,12 @@ class IrishRailAPI {
     
     private init() {}
     
-    func getStationDataByNameXML(_ StationDesc: String, success: @escaping (_ station: [Station]) -> Void, errorMessage: @escaping (String) -> Void) {
+    func getStationDataByName(_ name: String, success: @escaping (_ station: [StationSchedule]) -> Void, errorMessage: @escaping (String) -> Void) {
         
-        //http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=Blackrock
-        let url = URL(string: "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=Blackrock")!
-        let request = URLRequest(url: url)
+        guard let request = try? APIRouter.stationsByName(name).asURLRequest() else {
+            errorMessage("API URL Error")
+            return
+        }
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
 
@@ -28,16 +29,51 @@ class IrishRailAPI {
             }
 
             if let data = data {
+                // Parse Station XML from Data
+                if let stations = APIParser.shared.parseStationScheduleXML(data) {
+                    success(stations)
+                } else {
+                    errorMessage("XML decoder fail with data: \(String(data: data, encoding: .utf8) ?? "")")
+                }
+            }
+            
+        }.resume()
+    }
+    
+    /*
+        Returns a list of all stations with
+            StationDesc, StaionCode, StationId, StationAlias, StationLatitude and StationLongitude
+            Ordered by Latitude, Longitude
+            Filtered by StationType
+     
+        Takes a single letter with 4 possible values for the StationType parameter
+            (A for All, M for Mainline, S for suburban and D for DART)
+            any other value will be changed to A
+     */
+    func getAllStationsWithType(_ type: String, success: @escaping (_ station: [Station]) -> Void, errorMessage: @escaping (String) -> Void) {
+        
+        guard let request = try? APIRouter.allStationsWithType(type).asURLRequest() else {
+            errorMessage("API URL Error")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if let error = error {
+                errorMessage("Error getting response from server. \(error.localizedDescription)")
+                return
+            }
+            
+            if let data = data {
                 
-                // decode data
+                // Parse Station XML from Data
                 if let stations = APIParser.shared.parseStationXML(data) {
                     success(stations)
                 } else {
                     errorMessage("XML decoder fail with data: \(String(data: data, encoding: .utf8) ?? "")")
                 }
-                    
             }
             
-        }.resume()
+            }.resume()
     }
 }

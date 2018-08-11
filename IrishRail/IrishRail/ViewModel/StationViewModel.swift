@@ -10,22 +10,22 @@ import Foundation
 
 class StationViewModel {
     
-    private var stations: [Station] = [Station]()
+    private var stations: [StationSchedule] = [StationSchedule]()
     
     func loadStations(success: @escaping () -> Void) {
-        IrishRailAPI.shared.getStationDataByNameXML("Blackrock", success: { (stations) in
+        IrishRailAPI.shared.getStationDataByName("Blackrock", success: { (stations) in
             self.stations = stations
             success()
         }) { (error) in
             print("Woops")
-        }
+        }        
     }
     
     var count: Int {
         return stations.count
     }
     
-    func stationAtIndex(_ index: Int) -> Station? {
+    func stationAtIndex(_ index: Int) -> StationSchedule? {
         return stations[index]
     }
 }

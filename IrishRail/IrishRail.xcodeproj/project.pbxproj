@@ -18,6 +18,9 @@
 		5C978D78211D970600DE7ACC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D77211D970600DE7ACC /* Station.swift */; };
 		5C978D7A211D991F00DE7ACC /* APIParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D79211D991F00DE7ACC /* APIParser.swift */; };
 		5C978D7C211DB1E700DE7ACC /* StationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D7B211DB1E700DE7ACC /* StationViewModel.swift */; };
+		5C978D7E211ED1FC00DE7ACC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D7D211ED1FC00DE7ACC /* Constants.swift */; };
+		5C978D80211ED30B00DE7ACC /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D7F211ED30B00DE7ACC /* APIRouter.swift */; };
+		5C978D82211EE27600DE7ACC /* StationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D81211EE27600DE7ACC /* StationSchedule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		5C978D77211D970600DE7ACC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		5C978D79211D991F00DE7ACC /* APIParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParser.swift; sourceTree = "<group>"; };
 		5C978D7B211DB1E700DE7ACC /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
+		5C978D7D211ED1FC00DE7ACC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5C978D7F211ED30B00DE7ACC /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		5C978D81211EE27600DE7ACC /* StationSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSchedule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				5C978D77211D970600DE7ACC /* Station.swift */,
+				5C978D81211EE27600DE7ACC /* StationSchedule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +172,8 @@
 			children = (
 				5C978D75211D95B500DE7ACC /* IrishRailAPI.swift */,
 				5C978D79211D991F00DE7ACC /* APIParser.swift */,
+				5C978D7F211ED30B00DE7ACC /* APIRouter.swift */,
+				5C978D7D211ED1FC00DE7ACC /* Constants.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -302,8 +311,11 @@
 			files = (
 				5C978D76211D95B500DE7ACC /* IrishRailAPI.swift in Sources */,
 				5C978D46211D93CE00DE7ACC /* ViewController.swift in Sources */,
+				5C978D82211EE27600DE7ACC /* StationSchedule.swift in Sources */,
 				5C978D78211D970600DE7ACC /* Station.swift in Sources */,
 				5C978D7C211DB1E700DE7ACC /* StationViewModel.swift in Sources */,
+				5C978D7E211ED1FC00DE7ACC /* Constants.swift in Sources */,
+				5C978D80211ED30B00DE7ACC /* APIRouter.swift in Sources */,
 				5C978D44211D93CE00DE7ACC /* AppDelegate.swift in Sources */,
 				5C978D7A211D991F00DE7ACC /* APIParser.swift in Sources */,
 			);

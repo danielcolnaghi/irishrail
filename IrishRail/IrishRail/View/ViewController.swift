@@ -36,7 +36,11 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell") else { return UITableViewCell() }
         
-        cell.textLabel?.text = stationVM.stationAtIndex(indexPath.row)?.stationFullName
+        if let station = stationVM.stationAtIndex(indexPath.row) {
+            let tmpDescription = "\(station.origin ?? "") - \(station.destination ?? "") \(station.expArrival ?? "")"
+            cell.textLabel?.text = tmpDescription
+        }
+        
         return cell
     }
 }

@@ -13,24 +13,45 @@ class IrishRailTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func waitForIt() {
+        waitForExpectations(timeout: 5) { (error) in
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+            }
         }
     }
     
+    func testStationsWithType() {
+        let exp = expectation(description: "Get data from API")
+        
+        IrishRailAPI.shared.getAllStationsWithType("A", success: { (stationList) in
+            XCTAssert(stationList.count > 0, "Station count test")
+            exp.fulfill()
+        }) { (error) in
+            XCTFail("Error loading stations from API")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
+    
+    func testStationSchedules() {
+        let exp = expectation(description: "Get data from API")
+        
+        IrishRailAPI.shared.getStationDataByName("Blackrock", success: { (stationList) in
+            XCTAssert(stationList.count > 0, "Station schedule count test")
+            exp.fulfill()
+        }) { (error) in
+            XCTFail("Error loading stations from API")
+            exp.fulfill()
+        }
+        
+        waitForIt()
+    }
 }
