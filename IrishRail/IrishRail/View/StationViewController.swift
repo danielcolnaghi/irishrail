@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StationViewController.swift
 //  IrishRail
 //
 //  Created by Daniel Colnaghi on 10/08/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StationViewController: UIViewController {
 
     var stationVM = StationViewModel()
     @IBOutlet var tblStations : UITableView!
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : UITableViewDelegate, UITableViewDataSource {
+extension StationViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -37,8 +37,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell") else { return UITableViewCell() }
         
         if let station = stationVM.stationAtIndex(indexPath.row) {
-            let tmpDescription = "\(station.origin ?? "") - \(station.destination ?? "") \(station.expArrival ?? "")"
-            cell.textLabel?.text = tmpDescription
+            
+            let stationInfo = "\(station.stationDesc ?? "") \(station.stationAlias ?? "")"
+            cell.textLabel?.text = stationInfo
         }
         
         return cell

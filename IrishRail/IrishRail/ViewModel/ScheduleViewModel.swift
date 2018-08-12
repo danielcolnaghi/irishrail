@@ -1,21 +1,20 @@
 //
-//  StationViewModel.swift
+//  ScheduleViewModel.swift
 //  IrishRail
 //
-//  Created by Daniel Colnaghi on 10/08/2018.
+//  Created by Daniel Colnaghi on 12/08/2018.
 //  Copyright © 2018 Daniel Colnaghi. All rights reserved.
 //
 
 import Foundation
 
-class StationViewModel {
+class ScheduleViewModel {
     
-    private var stations: [Station] = [Station]()
+    private var stations: [StationSchedule] = [StationSchedule]()
     
     func loadStations(success: @escaping () -> Void) {
         
-        // (A)ll (M)ainline (S)uburban (D)ART
-        IrishRailAPI.shared.getAllStationsWithType("D", success: { (stations) in
+        IrishRailAPI.shared.getStationDataByName("Blackrock", success: { (stations) in
             self.stations = stations
             success()
         }) { (error) in
@@ -27,7 +26,7 @@ class StationViewModel {
         return stations.count
     }
     
-    func stationAtIndex(_ index: Int) -> Station? {
+    func stationAtIndex(_ index: Int) -> StationSchedule? {
         return stations[index]
     }
 }
