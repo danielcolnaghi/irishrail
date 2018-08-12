@@ -14,8 +14,9 @@ class ScheduleViewModel {
     
     func loadStations(success: @escaping () -> Void) {
         
-        IrishRailAPI.shared.getStationDataByName("Blackrock", success: { (stations) in
-            self.stations = stations
+        IrishRailAPI.shared.getStationDataByName("Blackrock", minute: 90, success: { (stations) in
+            self.stations.removeAll()
+            self.stations.append(contentsOf: stations)
             success()
         }) { (error) in
             print("Woops")

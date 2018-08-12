@@ -11,14 +11,14 @@ import Foundation
 enum APIRouter {
     
     case allStationsWithType(_: String)
-    case stationsByName(_: String)
+    case stationsByName(_: String, minute: Int)
     
     private var baseURL: URL {
         switch self {
         case .allStationsWithType(let type):
             return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationType)=\(type)")!
-        case .stationsByName(let name):
-            return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationDesc)=\(name)&NumMins=10")!
+        case .stationsByName(let name, let minute):
+            return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationDesc)=\(name)&NumMins=\(minute)")!
         }
     }
     
@@ -27,7 +27,7 @@ enum APIRouter {
         case .allStationsWithType:
             return "/getAllStationsXML_WithStationType"
         case .stationsByName:
-            return "/getStationDataByNameXML"
+            return "/getStationDataByNameXML_withNumMins"
         }
     }
     

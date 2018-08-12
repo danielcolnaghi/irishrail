@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 
 class ScheduleViewController: UIViewController {
 
@@ -16,7 +15,9 @@ class ScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         scheduleVM.loadStations {
             DispatchQueue.main.async {
                 self.tblStations.reloadData()
@@ -44,29 +45,5 @@ extension ScheduleViewController : UITableViewDelegate, UITableViewDataSource {
         }
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let content = UNMutableNotificationContent()
-        content.title = "DART"
-        content.body = "Your train arrives in 10 minutes."
-        content.sound = UNNotificationSound.default()
-        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        let date = Date(timeIntervalSinceNow: 10)
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        
-        let identifier = "DARTNotification"
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
-        center.add(request, withCompletionHandler: { (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-        })
     }
 }

@@ -14,9 +14,9 @@ class IrishRailAPI {
     
     private init() {}
     
-    func getStationDataByName(_ name: String, success: @escaping (_ station: [StationSchedule]) -> Void, errorMessage: @escaping (String) -> Void) {
+    func getStationDataByName(_ name: String, minute: Int, success: @escaping (_ station: [StationSchedule]) -> Void, errorMessage: @escaping (String) -> Void) {
         
-        guard let request = try? APIRouter.stationsByName(name).asURLRequest() else {
+        guard let request = try? APIRouter.stationsByName(name, minute: minute).asURLRequest() else {
             errorMessage("API URL Error")
             return
         }

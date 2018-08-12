@@ -33,6 +33,7 @@ class APIParser : NSObject {
     func parseStationScheduleXML(_ xml : Data) -> [StationSchedule]? {
 
         parserObject = .StationSchedule
+        stationScheduleList.removeAll()
         let parse = XMLParser(data: xml)
         parse.delegate = self
         parse.parse()
@@ -47,6 +48,7 @@ class APIParser : NSObject {
     func parseStationXML(_ xml : Data) -> [Station]? {
         
         parserObject = .Station
+        stationList.removeAll()
         let parse = XMLParser(data: xml)
         parse.delegate = self
         parse.parse()
