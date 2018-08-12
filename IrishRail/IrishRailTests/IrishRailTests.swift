@@ -30,7 +30,7 @@ class IrishRailTests: XCTestCase {
     func testStationsWithType() {
         let exp = expectation(description: "Get data from API")
         
-        IrishRailAPI.shared.getAllStationsWithType("A", success: { (stationList) in
+        IrishRailAPI.shared.getAllStationsWithType("D", success: { (stationList) in
             XCTAssert(stationList.count > 0, "Station count test")
             exp.fulfill()
         }) { (error) in
@@ -44,7 +44,7 @@ class IrishRailTests: XCTestCase {
     func testStationSchedules() {
         let exp = expectation(description: "Get data from API")
         
-        IrishRailAPI.shared.getStationDataByName("Blackrock", success: { (stationList) in
+        IrishRailAPI.shared.getStationDataByName("Blackrock", minute: 90, success: { (stationList) in
             XCTAssert(stationList.count > 0, "Station schedule count test")
             exp.fulfill()
         }) { (error) in
@@ -53,5 +53,24 @@ class IrishRailTests: XCTestCase {
         }
         
         waitForIt()
+    }
+    
+    func testDirectionViewModel() {
+        let vm = DirectionViewModel()
+        let date = vm.dateWithHourString("9:41")
+        
+        let calendar = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
+        
+        var timeInterval = DateComponents()
+        timeInterval.year = calendar.year
+        timeInterval.month = calendar.month
+        timeInterval.day = calendar.day
+        timeInterval.hour = 9
+        timeInterval.minute = 31
+        timeInterval.second = 0
+        
+        let expArrivalDate = Calendar.current.date(from: timeInterval)!
+        
+        XCTAssert(date == expArrivalDate, "Date compare")
     }
 }
