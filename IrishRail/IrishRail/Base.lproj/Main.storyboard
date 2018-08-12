@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0kJ-au-qih">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stations-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IrishRail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StationViewController" customModule="IrishRail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teS-Aj-83g">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StationCell" id="rpd-Kf-IL3">
@@ -46,12 +46,145 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Stations" id="FDr-rs-3YO"/>
                     <connections>
                         <outlet property="tblStations" destination="teS-Aj-83g" id="Sat-Xu-hVT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1887" y="269"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="sFY-y1-wxs">
+            <objects>
+                <viewController id="gCD-20-Vzw" customClass="ScheduleViewController" customModule="IrishRail" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nNN-a5-cuJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R9H-jA-HDc">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScheduleCell" id="sGm-8x-DEB">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sGm-8x-DEB" id="Ssd-dg-WHt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gCD-20-Vzw" id="TiE-2T-Z4k"/>
+                                    <outlet property="delegate" destination="gCD-20-Vzw" id="YFs-S6-uss"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R9H-jA-HDc" firstAttribute="leading" secondItem="Bqe-AY-1L1" secondAttribute="leading" id="9bU-kM-Mi1"/>
+                            <constraint firstItem="Bqe-AY-1L1" firstAttribute="trailing" secondItem="R9H-jA-HDc" secondAttribute="trailing" id="dpc-pY-jUw"/>
+                            <constraint firstItem="R9H-jA-HDc" firstAttribute="top" secondItem="Bqe-AY-1L1" secondAttribute="top" id="eQv-3D-riG"/>
+                            <constraint firstItem="Bqe-AY-1L1" firstAttribute="bottom" secondItem="R9H-jA-HDc" secondAttribute="bottom" id="huG-zk-e2y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bqe-AY-1L1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Schedule" id="ohN-Bt-SXG"/>
+                    <connections>
+                        <outlet property="tblStations" destination="R9H-jA-HDc" id="ejZ-d7-5wF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MD4-CY-7ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="665"/>
+        </scene>
+        <!--Direction-->
+        <scene sceneID="8Gt-Sd-85g">
+            <objects>
+                <viewController id="la7-tt-LZx" customClass="DirectionViewController" customModule="IrishRail" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hig-FM-SaQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEx-BU-0gj">
+                                <rect key="frame" x="127" y="278" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="h4O-NI-hW7"/>
+                                    <constraint firstAttribute="height" constant="30" id="xNl-Wz-d2i"/>
+                                </constraints>
+                                <state key="normal" title="Southbound"/>
+                                <connections>
+                                    <action selector="btnSouthbound_Touch:" destination="la7-tt-LZx" eventType="touchUpInside" id="qGZ-NF-5PX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blackrock" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jVc-Am-JfO">
+                                <rect key="frame" x="8" y="68" width="359" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your direction. You'll be notified 10 minutes before the train arrive." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="L9k-61-5ed">
+                                <rect key="frame" x="16" y="123" width="343" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLR-Ct-Dz8">
+                                <rect key="frame" x="127.5" y="216" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="r6D-tL-KFh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="wAe-ak-VLk"/>
+                                </constraints>
+                                <state key="normal" title="Northbound"/>
+                                <connections>
+                                    <action selector="btnNorthbound_Touch:" destination="la7-tt-LZx" eventType="touchUpInside" id="24P-6t-LBO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mEx-BU-0gj" firstAttribute="top" secondItem="fLR-Ct-Dz8" secondAttribute="bottom" constant="32" id="3Fx-p1-Yzo"/>
+                            <constraint firstItem="L4S-1q-BcQ" firstAttribute="trailing" secondItem="jVc-Am-JfO" secondAttribute="trailing" constant="8" id="IIv-ve-Ru6"/>
+                            <constraint firstItem="fLR-Ct-Dz8" firstAttribute="centerX" secondItem="Hig-FM-SaQ" secondAttribute="centerX" id="Nqx-j5-EZM"/>
+                            <constraint firstItem="L9k-61-5ed" firstAttribute="top" secondItem="jVc-Am-JfO" secondAttribute="bottom" constant="16" id="dVk-zQ-bpV"/>
+                            <constraint firstItem="L4S-1q-BcQ" firstAttribute="trailing" secondItem="L9k-61-5ed" secondAttribute="trailing" constant="16" id="dsZ-hT-s4L"/>
+                            <constraint firstItem="mEx-BU-0gj" firstAttribute="centerX" secondItem="Hig-FM-SaQ" secondAttribute="centerX" id="lDP-xh-8e3"/>
+                            <constraint firstItem="jVc-Am-JfO" firstAttribute="top" secondItem="L4S-1q-BcQ" secondAttribute="top" constant="48" id="n5Y-Cn-ErT"/>
+                            <constraint firstItem="L9k-61-5ed" firstAttribute="leading" secondItem="L4S-1q-BcQ" secondAttribute="leading" constant="16" id="o3N-7A-UGT"/>
+                            <constraint firstItem="fLR-Ct-Dz8" firstAttribute="top" secondItem="L9k-61-5ed" secondAttribute="bottom" constant="32" id="rX9-91-j6X"/>
+                            <constraint firstItem="jVc-Am-JfO" firstAttribute="leading" secondItem="L4S-1q-BcQ" secondAttribute="leading" constant="8" id="tn2-sh-BzJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L4S-1q-BcQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Direction" id="clV-NX-R5t"/>
+                    <connections>
+                        <outlet property="lblStation" destination="jVc-Am-JfO" id="zed-4f-l2u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4a-t6-qxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045.5999999999999" y="-125.4872563718141"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gjB-RG-0Ee">
+            <objects>
+                <tabBarController id="0kJ-au-qih" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3XI-cd-Gzb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="la7-tt-LZx" kind="relationship" relationship="viewControllers" id="Kug-Nd-Gu3"/>
+                        <segue destination="gCD-20-Vzw" kind="relationship" relationship="viewControllers" id="1Bk-W0-D7f"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ElF-6l-vEA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8Z-vn-cWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95" y="269"/>
         </scene>
     </scenes>
 </document>

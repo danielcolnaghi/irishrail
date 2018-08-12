@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C978D44211D93CE00DE7ACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D43211D93CE00DE7ACC /* AppDelegate.swift */; };
-		5C978D46211D93CE00DE7ACC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D45211D93CE00DE7ACC /* ViewController.swift */; };
+		5C978D46211D93CE00DE7ACC /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D45211D93CE00DE7ACC /* StationViewController.swift */; };
 		5C978D49211D93CE00DE7ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C978D47211D93CE00DE7ACC /* Main.storyboard */; };
 		5C978D4B211D93D000DE7ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C978D4A211D93D000DE7ACC /* Assets.xcassets */; };
 		5C978D4E211D93D000DE7ACC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C978D4C211D93D000DE7ACC /* LaunchScreen.storyboard */; };
@@ -21,6 +21,10 @@
 		5C978D7E211ED1FC00DE7ACC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D7D211ED1FC00DE7ACC /* Constants.swift */; };
 		5C978D80211ED30B00DE7ACC /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D7F211ED30B00DE7ACC /* APIRouter.swift */; };
 		5C978D82211EE27600DE7ACC /* StationSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D81211EE27600DE7ACC /* StationSchedule.swift */; };
+		5C978D842120185600DE7ACC /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D832120185600DE7ACC /* ScheduleViewModel.swift */; };
+		5C978D86212018DE00DE7ACC /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D85212018DE00DE7ACC /* ScheduleViewController.swift */; };
+		5C978D882120232600DE7ACC /* DirectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D872120232600DE7ACC /* DirectionViewController.swift */; };
+		5C978D8A2120244200DE7ACC /* DirectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C978D892120244200DE7ACC /* DirectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +47,7 @@
 /* Begin PBXFileReference section */
 		5C978D40211D93CE00DE7ACC /* IrishRail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IrishRail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C978D43211D93CE00DE7ACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C978D45211D93CE00DE7ACC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C978D45211D93CE00DE7ACC /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		5C978D48211D93CE00DE7ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C978D4A211D93D000DE7ACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C978D4D211D93D000DE7ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +65,10 @@
 		5C978D7D211ED1FC00DE7ACC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C978D7F211ED30B00DE7ACC /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		5C978D81211EE27600DE7ACC /* StationSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSchedule.swift; sourceTree = "<group>"; };
+		5C978D832120185600DE7ACC /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		5C978D85212018DE00DE7ACC /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		5C978D872120232600DE7ACC /* DirectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionViewController.swift; sourceTree = "<group>"; };
+		5C978D892120244200DE7ACC /* DirectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				5C978D7B211DB1E700DE7ACC /* StationViewModel.swift */,
+				5C978D832120185600DE7ACC /* ScheduleViewModel.swift */,
+				5C978D892120244200DE7ACC /* DirectionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -162,7 +172,9 @@
 		5C978D73211D954F00DE7ACC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C978D45211D93CE00DE7ACC /* ViewController.swift */,
+				5C978D45211D93CE00DE7ACC /* StationViewController.swift */,
+				5C978D85212018DE00DE7ACC /* ScheduleViewController.swift */,
+				5C978D872120232600DE7ACC /* DirectionViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -310,13 +322,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C978D76211D95B500DE7ACC /* IrishRailAPI.swift in Sources */,
-				5C978D46211D93CE00DE7ACC /* ViewController.swift in Sources */,
+				5C978D46211D93CE00DE7ACC /* StationViewController.swift in Sources */,
 				5C978D82211EE27600DE7ACC /* StationSchedule.swift in Sources */,
+				5C978D842120185600DE7ACC /* ScheduleViewModel.swift in Sources */,
 				5C978D78211D970600DE7ACC /* Station.swift in Sources */,
 				5C978D7C211DB1E700DE7ACC /* StationViewModel.swift in Sources */,
 				5C978D7E211ED1FC00DE7ACC /* Constants.swift in Sources */,
+				5C978D8A2120244200DE7ACC /* DirectionViewModel.swift in Sources */,
 				5C978D80211ED30B00DE7ACC /* APIRouter.swift in Sources */,
+				5C978D882120232600DE7ACC /* DirectionViewController.swift in Sources */,
 				5C978D44211D93CE00DE7ACC /* AppDelegate.swift in Sources */,
+				5C978D86212018DE00DE7ACC /* ScheduleViewController.swift in Sources */,
 				5C978D7A211D991F00DE7ACC /* APIParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

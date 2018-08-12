@@ -18,7 +18,7 @@ enum APIRouter {
         case .allStationsWithType(let type):
             return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationType)=\(type)")!
         case .stationsByName(let name):
-            return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationDesc)=\(name)")!
+            return URL(string: "\(K.APIServer.baseURL)?\(K.APIParameterKey.stationDesc)=\(name)&NumMins=10")!
         }
     }
     

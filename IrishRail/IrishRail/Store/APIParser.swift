@@ -111,7 +111,8 @@ extension APIParser : XMLParserDelegate {
             stationSchedule.origin = data
         case "Destination":
             stationSchedule.destination = data
-            
+        case "Direction":
+            stationSchedule.direction = data
         default:
             break
         }
